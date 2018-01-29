@@ -1,0 +1,17 @@
+<%= form_with(model: comment, local: true) do |form| %>
+
+  <% if logged_in? %>
+    <%= hidden_field_tag "comment[user_id]", current_user.id %>
+    <% end %>
+
+  <%= hidden_field_tag "comment[report_id]", params[:id] %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :comment_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

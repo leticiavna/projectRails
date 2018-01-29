@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong><%= @report.title %></strong>
+</h2>
+
+<% if !@report.image.file.nil? %>
+  <%= image_tag @report.image.thumb.url %>
+<% end %>
+
+<p>
+  <%= @report.content %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @report.category.name %>
+</p>
+
+<p>
+  <strong>By</strong>
+  <%= @report.user.name %>
+</p>
+
+<p>
+  <strong>Last updated at </strong>
+  <%= @report.last_update %>
+</p>
+
+<p> <%= render "comments/form", comment: @comment %>
+</p>
+
+<h3> Comments: </h3>
+  <% @comments.each do |comment| %>
+    <p> <%= comment.content %> </p>
+<% end %>
+
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_report_path(@report) %>
+  <% end %> |
+<%= link_to 'Back', feed_path %>

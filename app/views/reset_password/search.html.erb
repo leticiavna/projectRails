@@ -1,0 +1,10 @@
+<h1>Forgot my password</h1>
+
+<p>Submit your email to recover: </p>
+
+<%= form_for :user, url: :reset_password do |form| %>
+	<%= form.label "Email" %>
+	<%= form.email_field :email %>
+
+	<%= form.submit "Submit" %>
+<% end %>

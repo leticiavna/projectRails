@@ -1,0 +1,12 @@
+<h1>Newsfeed</h1>
+<% @reports.each do |report| %>
+
+  <h2> <%= link_to report.title, report_path(id: report.id)%> </h2>
+  <% @report = report %>
+
+  <p> By <%= link_to report.user.name, show_user_path(id: report.user.id) %> </p>
+  <p> Last update: <%= report.last_update %> </p>
+  <br>
+  <% end %>
+
+  <%= will_paginate @reports %>
