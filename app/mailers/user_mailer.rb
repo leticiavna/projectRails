@@ -6,5 +6,3 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: "Password recovery"
   end
 end
-
-end

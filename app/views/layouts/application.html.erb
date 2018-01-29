@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <%= render "layouts/avisos" %>
     <%= link_to "Newsfeed", feed_path %>
     <% if logged_in? %>
     <% if current_user.admin %>

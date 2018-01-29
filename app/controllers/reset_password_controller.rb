@@ -7,7 +7,7 @@ class ResetPasswordController < ApplicationController
 
   # POST reset_password/search
   def recover
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:user][:email])
     if user
       password = Passgen::generate(:length => 6)
       user.password = password
@@ -22,4 +22,5 @@ class ResetPasswordController < ApplicationController
       render "search"
  	  end
   end
+
 end
